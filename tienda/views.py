@@ -35,3 +35,10 @@ class ProductoListView(PermissionRequiredMixin, ListView):
     permission_required = 'tienda.view_producto'
     template_name = 'tienda/lista.html'
     context_object_name = 'productos'
+
+    def get_queryset(self):
+        qs = super().get_queryset().order_by('-creado')
+        q = self.request.GET.get('q', '').strip()
+        if q:
+            qs = qs.filter(nombre__icontains=q)
+        return qs
