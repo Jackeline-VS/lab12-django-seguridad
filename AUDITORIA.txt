@@ -1,0 +1,1 @@
+"Auditoria: check --deploy ejecutado, cabeceras X-Frame-Options y X-Auditoria verificadas" 
